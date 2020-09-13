@@ -1,0 +1,46 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+void fopen_simples();
+
+int main(){
+	/* Declaramos as variáveis que serão utilizadas */
+		
+	fopen_simples();
+		
+	return 0; 
+}
+
+void fopen_simples(){
+	//char texto[100]
+	char ch;
+	char res;
+
+	//cria um arqueivo ponteiro para associar arquivo físico com virtual
+	FILE *pFile;
+	//associa arquivo físico com arquivo virtual "r+" é leitura e escrita
+	pFile = fopen("xyz", "r");
+	//pFile = fopen("/var/log/syslog", "r");
+
+	/* testa se a associação foi bem sucedida*/
+	if(pFile == NULL)
+    	printf("ERRO! O arquivo não foi aberto!\n");
+	else
+		while((ch=fgetc(pFile))!= EOF)
+			(res = strstr(ch, 'NetworkManager')) 
+			if(res != 0){
+  				putchar(res);
+			}
+  			else{
+  				return 0;
+  			} 
+  			
+     	//printf("O arquivo foi aberto com sucesso!");
+     	//fscanf(pFile, "%[^\n]", texto);
+    	//printf("Data from the file:\n%s", texto);
+
+     	//fecha o arquivo
+     	fclose(pFile);
+    
+}
